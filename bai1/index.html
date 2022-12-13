@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="num-a">Nhập số a:</label><br>
+        <input type="text" id="num-a" name="num-a" "><br>
+        <label for="num-b">Nhập số b:</label><br>
+        <input type="text" id="num-b" name="num-b" "><br><br>
+        <button type="button" onclick="getRes()">Trả kết quả</button>
+        <p id="res">Kết quả được trả ở đây</p>
+      </form> 
+
+
+    <script>
+        function ktnt (n) {
+            if (n < 2){
+                return false;
+            }
+            else {
+                for (var i = 2; i < n-1; i++){
+                    if (n%i == 0){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        function sumoflistnt (a,b) {
+            var sum = 0;
+            for (var j = a; j <= b; j++){
+                if (ktnt(j)) sum += j;
+            }
+            return sum;
+        }
+
+        function getRes () {
+        let a = document.getElementById('num-a').value;
+        let b = document.getElementById('num-b').value;
+        document.getElementById("res").innerHTML = sumoflistnt(a,b);
+  // document.write("Kết quả là: ", tongSNT(a,b));
+        }
+    </script>
+</body>
+</html>
